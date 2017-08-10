@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class=container>
+  <h1>Search a document</h1>
+  <form method=post enctype=multipart/form-data action=/upload>
+    <div class=form-group>
+      <label>Matching rules</label>
+      <textarea class=form-control name=rules rows=8 aria-describedby=rulesHelp></textarea>
+      <small id=rulesHelp class="form-text text-muted">Use + for and | for or. Parentheses are allowed.</small>
+    </div>
+    <div class=form-group>
+      <label>Language</label>
+      <select class=form-control name=lang>
+        <option value=english>English</option>
+        <option value=french>French</option>
+      </select>
+    </div>
+    <div class=form-group>
+      <label>File input</label>
+      <input type=file class=form-control-file name=file aria-describedby=fileHelp>
+      <small id=fileHelp class="form-text text-muted">Only PDF format is supported.</small>
+    </div>
+    <button type=submit class="btn btn-primary">Search</button>
+  </form>
+</div>
+{% endblock %}
